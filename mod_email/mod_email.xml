@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" client="site" method="upgrade">
+<languages>
+		<language tag="en-GB">language/en-GB/mod_email.ini</language>
+		<language tag="en-GB">language/en-GB/mod_email.sys.ini</language>
+	</languages>
+	<name>mod_email</name>
+	<author>Joomla! Project</author>
+	<creationDate>June 2022</creationDate>
+	<copyright>(C) 2005 Open Source Matters, Inc.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>pritamkumar12052001@gmail.com</authorEmail>
+	<version>3.0.0</version>
+	<description>MOD_EMAIL_XML_DESCRIPTION</description>
+	<namespace path="src">Joomla\Module\Email</namespace>
+	<files>
+		<filename module="mod_email">mod_email.php</filename>
+		<folder>src</folder>
+		<folder>tmpl</folder>
+	</files>
+	
+	<help key="Site_Modules:_email" />
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="email"
+					type="email"
+					label="MOD_EMAIL_FIELD_EMAIL_LABEL"
+					required="true"
+                   
+				/>
+				<field
+					name="add"
+					type="radio"
+					layout="joomla.form.field.radio.switcher"
+					label="MOD_EMAIL_FIELD_ADD_LABEL"
+					default="1"
+					filter="integer"
+					>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				
+			</fieldset>
+			<fieldset name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					class="form-select"
+					validate="moduleLayout"
+				/>
+
+				<field
+					name="moduleclass_sfx"
+					type="textarea"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					rows="3"
+					validate="CssIdentifier"
+				/>
+
+				<field
+					name="cache"
+					type="list"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					default="1"
+					filter="integer"
+					validate="options"
+					>
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+					name="cache_time"
+					type="number"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					default="900"
+					filter="integer"
+				/>
+
+				<field
+					name="cachemode"
+					type="hidden"
+					default="static"
+					>
+					<option value="static"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
